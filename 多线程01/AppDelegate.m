@@ -8,12 +8,128 @@
 
 #import "AppDelegate.h"
 
+@interface AppDelegate ()
+{
+    int tickets;
+    int count;
+    NSThread *ticketOne;
+    NSThread *ticketTwo;
+    
+    NSLock *ticketLock; // 线程锁
+    NSCondition *ticketCondition;
+}
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    tickets = 100;
+    count = 0;
+    
+    ticketLock = [[NSLock alloc]init];
+    ticketCondition = [[NSCondition alloc]init];
+    
+    // 创建线程 1
+    ticketOne = [[NSThread alloc]initWithTarget:self selector:@selector(runThread) object:nil];
+    [ticketOne setName:@"Thread-1"];
+//    [ticketOne start];
+    
+    // 创建线程 2
+    ticketTwo = [[NSThread alloc]initWithTarget:self selector:@selector(runThread) object:nil];
+    [ticketTwo setName:@"Thread-2"];
+//    [ticketTwo start];
+    
+      // 申请执行代码多少遍
+//    dispatch_apply(5, dispatch_get_global_queue(0, 0), ^(size_t index) {
+//       
+//        NSLog(@"--%s--%d",__FUNCTION__,__LINE__);
+//        
+//    });
+    
+      // dispatch_barrier_async的使用
+//    dispatch_queue_t queue = dispatch_queue_create("队列1",  DISPATCH_QUEUE_CONCURRENT);
+//    
+//    dispatch_async(queue, ^{
+////        [NSThread sleepForTimeInterval:2.0];
+//        NSLog(@"dispatch_1");
+//    });
+//    
+//    dispatch_async(queue, ^{
+////        [NSThread sleepForTimeInterval:3.0];
+//        NSLog(@"dispatch_2");
+//    });
+//    
+//    dispatch_barrier_async(queue, ^{
+//        
+////        [NSThread sleepForTimeInterval:5.0];
+//        NSLog(@"dispatch_barrier");
+//        
+//        
+//    });
+//    
+//    
+//    
+//    dispatch_async(queue, ^{
+////        [NSThread sleepForTimeInterval:1.0];
+//        NSLog(@"dispatch_3");
+//    });
+    
+    // Group的使用 dispatch_group_async
+    
+//    // 创建队列
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    
+//    // 创建group
+//    dispatch_group_t group = dispatch_group_create();
+//    
+//    // 执行任务一
+//    dispatch_group_async(group, queue, ^{
+//        [NSThread sleepForTimeInterval:4.0];
+//        NSLog(@"任务一");
+//    });
+//    
+//    // 执行任务二
+//    dispatch_group_async(group, queue, ^{
+//       [NSThread sleepForTimeInterval:8.0];
+//        NSLog(@"任务二");
+//    });
+//    
+//    
+//    // 执行完任务一、二,通知任务三
+//    dispatch_group_notify(group, queue, ^{
+//        NSLog(@"任务三");
+//    });
+//    
+    
+    
+    
     return YES;
+}
+
+-(void)runThread
+{
+    while (true) {
+        
+        // 上锁
+//        [ticketLock lock];
+        [ticketCondition lock];
+        if(tickets >=0)
+        {
+            [NSThread sleepForTimeInterval:0.09];
+            count = 100 - tickets;
+            NSLog(@"当前票数是:%d,售出:%d,线程名:%@",tickets,count,[[NSThread currentThread] name]);
+            tickets--;
+        }else
+        {
+            break;
+        }
+        [ticketCondition unlock];
+//        [ticketLock unlock];
+        
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

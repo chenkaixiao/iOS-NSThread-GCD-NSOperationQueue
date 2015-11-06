@@ -13,4 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+#define KXSize(width,height) CGSizeMake(width,height)
+#define KXRect(x,y,width,height) CGRectMake(x, y, width, height)
 #endif

@@ -21,6 +21,8 @@
 		DAA215051ABFE9B400172EE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA214E71ABFE9B400172EE5 /* UIKit.framework */; };
 		DAA2150D1ABFE9B400172EE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA2150B1ABFE9B400172EE5 /* InfoPlist.strings */; };
 		DAA2150F1ABFE9B400172EE5 /* ___01Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA2150E1ABFE9B400172EE5 /* ___01Tests.m */; };
+		DAA2151A1AC00F3400172EE5 /* KXAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA215191AC00F3400172EE5 /* KXAudioTool.m */; };
+		DAD9839E1AC0FDFC0015F667 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD9839D1AC0FDFC0015F667 /* ShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		DAA2150A1ABFE9B400172EE5 /* 多线程01Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "多线程01Tests-Info.plist"; sourceTree = "<group>"; };
 		DAA2150C1ABFE9B400172EE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DAA2150E1ABFE9B400172EE5 /* ___01Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___01Tests.m"; sourceTree = "<group>"; };
+		DAA215181AC00F3400172EE5 /* KXAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXAudioTool.h; sourceTree = "<group>"; };
+		DAA215191AC00F3400172EE5 /* KXAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXAudioTool.m; sourceTree = "<group>"; };
+		DAD9839C1AC0FDFC0015F667 /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		DAD9839D1AC0FDFC0015F667 /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				DAA214F91ABFE9B400172EE5 /* ViewController.m */,
 				DAA214FB1ABFE9B400172EE5 /* Images.xcassets */,
 				DAA214EA1ABFE9B400172EE5 /* Supporting Files */,
+				DAA215181AC00F3400172EE5 /* KXAudioTool.h */,
+				DAA215191AC00F3400172EE5 /* KXAudioTool.m */,
+				DAD9839C1AC0FDFC0015F667 /* ShowViewController.h */,
+				DAD9839D1AC0FDFC0015F667 /* ShowViewController.m */,
 			);
 			path = "多线程01";
 			sourceTree = "<group>";
@@ -250,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA214FA1ABFE9B400172EE5 /* ViewController.m in Sources */,
+				DAD9839E1AC0FDFC0015F667 /* ShowViewController.m in Sources */,
 				DAA214F41ABFE9B400172EE5 /* AppDelegate.m in Sources */,
 				DAA214F01ABFE9B400172EE5 /* main.m in Sources */,
+				DAA2151A1AC00F3400172EE5 /* KXAudioTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +468,7 @@
 				DAA215141ABFE9B400172EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAA215151ABFE9B400172EE5 /* Build configuration list for PBXNativeTarget "多线程01Tests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				DAA215171ABFE9B400172EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
